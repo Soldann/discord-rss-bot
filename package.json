@@ -1,0 +1,29 @@
+{
+  "name": "discord-rss-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot notifying new entries to an RSS feed",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soldann/discord-rss-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "rss"
+  ],
+  "author": "Soldann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Soldann/discord-rss-bot/issues"
+  },
+  "homepage": "https://github.com/Soldann/discord-rss-bot#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "discord.js": "^12.5.1",
+    "rss-parser": "^3.10.0"
+  }
+}
