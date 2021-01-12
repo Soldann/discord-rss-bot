@@ -15,7 +15,7 @@ async function sendMessage(message, timeout){
     }).catch(function (err) {
         if (err.response){
             if (err.response.status == "429"){
-                console.log("429 error, ratelimiting!");
+                console.log("Ratelimiting, delaying sending the following message:" + message);
                 setTimeout(sendMessage.bind(null,message,timeout*2),timeout); //exponential backoff
             }
         }
