@@ -23,8 +23,6 @@
   "homepage": "https://github.com/Soldann/discord-rss-bot#readme",
   "dependencies": {
     "axios": "^0.21.1",
-    "discord.js": "^12.5.1",
-    "rss-feed-emitter": "^3.2.2",
-    "rss-parser": "^3.10.0"
+    "rss-feed-emitter": "^3.2.2"
   }
 }
