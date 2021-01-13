@@ -23,16 +23,17 @@ async function sendMessage(message, timeout){
 }
 
 async function getFeed() {
-    let feed = await parser.parseURL("https://www.polygon.com/rss/nintendo/index.xml");
-    let results = []
-    feed.items.forEach(item => {
+    let feed = await parser.parseURL("https://www.reddit.com/r/AskReddit/new/.rss");
+    console.log("_________________________________________________________");
+    await Promise.all(feed.items.map(item => {
         console.log(item.title);
         let itemTime = new Date(item.pubDate);
+        console.log("last update: " + lastUpdateTime);
+        console.log("pub time: " + itemTime);
         if (lastUpdateTime < itemTime) {
-            results.push(sendMessage("*" + item.title + "*\n" + item.link, 1000));
+            sendMessage("*" + item.title + "*\n" + item.link, 1000);
         }
-    });
-    await Promise.all(results);
+    }));
     lastUpdateTime = new Date(); //update 
     console.log("Updated time: " + lastUpdateTime);
 }
