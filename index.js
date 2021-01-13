@@ -1,11 +1,11 @@
-//const Discord = require("discord.js"); //don't technically need this, will use webhooks
 const RssFeed = require("rss-feed-emitter");
 const axios = require("axios"); 
 
+const webhook = "INSERT WEBHOOK URL HERE"
 
 const feed = new RssFeed({ skipFirstLoad: true });
 feed.add({
-    url: "https://www.reddit.com/r/AskReddit/new/.rss"
+    url: "https://www.polygon.com/rss/nintendo/index.xml"
 });
 
 async function sendMessage(message, timeout = 1000){
