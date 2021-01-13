@@ -3,7 +3,8 @@ const RSS = require("rss-parser");
 const axios = require("axios");
 const Parser = require("rss-parser");
 
-const webhook = "WEBHOOK URL GOES HERE"
+
+const requestInterval = 10000;
 
 let parser = new Parser();
 let lastUpdateTime = new Date();
