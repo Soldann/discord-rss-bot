@@ -5,8 +5,7 @@ const axios = require("axios");
 
 const feed = new RssFeed({ skipFirstLoad: true });
 feed.add({
-    url: "https://www.reddit.com/r/AskReddit/new/.rss",
-    refresh: 10000
+    url: "https://www.reddit.com/r/AskReddit/new/.rss"
 });
 
 async function sendMessage(message, timeout = 1000){
