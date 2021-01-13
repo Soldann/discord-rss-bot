@@ -24,15 +24,17 @@ async function sendMessage(message, timeout){
 
 async function getFeed() {
     let feed = await parser.parseURL("https://www.polygon.com/rss/nintendo/index.xml");
+    let results = []
     feed.items.forEach(item => {
         console.log(item.title);
         let itemTime = new Date(item.pubDate);
         if (lastUpdateTime < itemTime) {
-            sendMessage("*" + item.title + "*\n" + item.link, 1000);
+            results.push(sendMessage("*" + item.title + "*\n" + item.link, 1000));
         }
     });
-
+    await Promise.all(results);
     lastUpdateTime = new Date(); //update 
+    console.log("Updated time: " + lastUpdateTime);
 }
 
 setInterval(getFeed,10000);
