@@ -22,5 +22,5 @@ async function sendMessage(message, timeout = 1000){
 }
 
 feed.on('new-item', item => {
-    sendMessage("*" + item.title + "*\n" + item.link);
+    sendMessage("**" + item.title + "**\n" + item.link);
 });
