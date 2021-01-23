@@ -5,7 +5,7 @@ const webhook = "INSERT WEBHOOK URL HERE"
 
 const feed = new RssFeed({ skipFirstLoad: true });
 feed.add({
-    url: "https://www.polygon.com/rss/nintendo/index.xml"
+    url: "https://www.polygon.com/rss/nintendo/.xml"
 });
 
 async function sendMessage(message, timeout = 1000){
@@ -23,4 +23,8 @@ async function sendMessage(message, timeout = 1000){
 
 feed.on('new-item', item => {
     sendMessage("**" + item.title + "**\n" + item.link);
+});
+
+feed.on('error', err => {
+    console.error(err);
 });
