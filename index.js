@@ -22,7 +22,11 @@ async function sendMessage(message, timeout = 1000){
 }
 
 feed.on('new-item', item => {
-    sendMessage("**" + item.title + "**\n" + item.link);
+    if (item.link.includes("guide")){
+        console.log("Skipping post "+ item.title + " because it contains 'guide' in the URL.");
+    } else {
+        sendMessage("**" + item.title + "**\n" + item.link);
+    }
 });
 
 feed.on('error', err => {
